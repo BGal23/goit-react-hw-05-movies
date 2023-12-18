@@ -1,8 +1,25 @@
+import { useEffect, useState } from 'react';
 import { getAllVideos } from '../importApi';
+import { Link, useLocation } from 'react-router-dom';
 
 const TrendingMovies = () => {
-  getAllVideos();
+  const [trendingState, setTrendingState] = useState([]);
+  const location = useLocation();
 
-  return <ul>TrendingMovies</ul>;
+  useEffect(() => {
+    const trendingUrl = '/trending/all/day';
+    getAllVideos(trendingUrl).then(trendingVideos =>
+      setTrendingState(trendingVideos.data.results)
+    );
+  }, []);
+
+  const trendingList = trendingState.map(video => (
+    <li key={video.id}>
+      <Link to={`movies/${video.id}`} state={{ from: location }}>
+        {video.title || video.name}
+      </Link>
+    </li>
+  ));
+  return <ul>{trendingList}</ul>;
 };
 export default TrendingMovies;

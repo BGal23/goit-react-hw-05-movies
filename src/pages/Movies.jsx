@@ -1,4 +1,8 @@
 const Movies = () => {
-  return <main>Movies</main>;
+  return (
+    <main>
+      <input />
+    </main>
+  );
 };
 export default Movies;
