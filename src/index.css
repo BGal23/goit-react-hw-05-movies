@@ -11,6 +11,7 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 code {
@@ -20,4 +21,9 @@ code {
 
 main {
   margin: 0 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }

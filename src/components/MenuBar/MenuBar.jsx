@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import styled from 'styled-components';
 import css from './menu-bar.module.css';
-import { Outlet } from 'react-router-dom';
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -19,7 +20,9 @@ const MenuBar = () => {
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/movies">Movies</StyledLink>
       </header>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

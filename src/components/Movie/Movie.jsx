@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllVideos } from '../importApi';
+import css from './movie.module.css';
 
 const Movie = () => {
   const { movieId } = useParams();
-  const [movieData, setMovieData] = useState('');
+  const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
-    const movieIdUrl = `/movie/${movieId}`;
+    const movieIdUrl = `/movie/${movieId}?`;
     getAllVideos(movieIdUrl).then(movieById => {
       setMovieData(movieById.data);
     });
   }, [movieId]);
 
   return (
-    <div>
+    <div className={css.movie}>
       <img
-        src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-        alt=""
+        src={
+          movieData.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}?`
+            : 'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie-1-1-476x700.jpg'
+        }
+        alt={movieData.title}
+        height="400px"
+        width="250px"
       />
       <div>
         <h2>{movieData.title}</h2>
@@ -26,9 +33,8 @@ const Movie = () => {
         <p>{movieData.overview}</p>
         <h4>Genres</h4>
         <ul>
-          {movieData.genres.map(gen => (
-            <li key={gen.id}>{gen.name}</li>
-          ))}
+          {movieData.genres &&
+            movieData.genres.map(gen => <li key={gen.id}>{gen.name}</li>)}
         </ul>
       </div>
     </div>

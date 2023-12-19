@@ -7,7 +7,7 @@ const TrendingMovies = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const trendingUrl = '/trending/all/day';
+    const trendingUrl = '/trending/all/day?';
     getAllVideos(trendingUrl).then(trendingVideos =>
       setTrendingState(trendingVideos.data.results)
     );

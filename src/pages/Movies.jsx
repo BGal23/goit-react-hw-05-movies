@@ -1,8 +1,11 @@
+import Searched from 'components/Searched/Searched';
+
 const Movies = () => {
   return (
     <main>
-      <input />
+      <Searched />
     </main>
   );
 };
+
 export default Movies;
