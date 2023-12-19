@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/571.1acd6c60.chunk.css","mappings":"AAAA,wBAGE,oBAA2B,CAD3B,kBAAmB,CADnB,iBAGF","sources":["components/Reviews/reviews.module.css"],"sourcesContent":[".reviews {\n  padding: 10px 20px;\n  margin-bottom: 30px;\n  box-shadow: 0px 0px 7px 0px;\n}\n"],"names":[],"sourceRoot":""}
