@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllVideos } from '../importApi';
+import { getAllVideos } from '../../api/tmdbAPI';
 import { Link, useLocation } from 'react-router-dom';
 
 const TrendingMovies = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAllVideos } from '../importApi';
+import { getAllVideos } from '../../api/tmdbAPI';
 import css from './Reviews.module.css';
 
 const Reviews = () => {

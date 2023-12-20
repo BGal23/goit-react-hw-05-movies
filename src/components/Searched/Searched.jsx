@@ -1,4 +1,4 @@
-import { getAllVideos } from 'components/importApi';
+import { getAllVideos } from 'api/tmdbAPI';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 
